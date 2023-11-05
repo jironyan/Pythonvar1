@@ -1,0 +1,18 @@
+# Введите строку с названиями товаров
+input_string = input("Введите строку с названиями товаров: ")
+# Разделите строку на список товаров, удалив пробелы после запятых и пробелы в начале и конце строки
+products = [product.strip() for product in input_string.split(',')]
+# Создайте словарь для подсчета количества каждого товара
+product_count = {}
+for product in products:
+    if product in product_count:
+        product_count[product] += 1
+    else:
+        product_count[product] = 1
+# Отсортируйте товары по количеству в убывающем порядке
+sorted_products = sorted(product_count.items(), key=lambda x: x[1], reverse=True)
+# Выведите таблицу
+print("Название товара | Количество")
+print("-" * 28)
+for product, count in sorted_products:
+    print(f"{product} | {count}")
