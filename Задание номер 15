@@ -1,0 +1,13 @@
+# Введите целое число
+number = int(input("Введите целое число: "))
+# Определите последнюю цифру числа
+last_digit = abs(number) % 10
+# Определите форму слова "рубль" в зависимости от последней цифры
+if last_digit == 1 and abs(number) % 100 != 11:
+    word = "рубль"
+elif 2 <= last_digit <= 4 and (abs(number) % 100 < 10 or abs(number) % 100 >= 20):
+    word = "рубля"
+else:
+    word = "рублей"
+# Выведите число и соответствующее слово
+print(f"{number} {word}")
