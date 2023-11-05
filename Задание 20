@@ -1,0 +1,14 @@
+def multiply_numbers(*args):
+result = 1
+for number in args:
+result *= number
+return result
+# Примеры использования функции
+result1 = multiply_numbers(15, 10, 5)
+print("Результат 1:", result1)
+result2 = multiply_numbers(3, 1)
+print("Результат 2:", result2)
+result3 = multiply_numbers(2, 35, 55)
+print("Результат 3:", result3)
+result4 = multiply_numbers(5, 10, 15, 20)
+print("Результат 4:", result4)
