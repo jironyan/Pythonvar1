@@ -1,0 +1,32 @@
+import random
+def generate_matrix(rows, columns, min_value, max_value):
+if rows != columns:
+raise ValueError("Матрица не является квадратной")
+matrix = [[random.randint(min_value, max_value) for _ in range(columns)] for _ in range(rows)]
+return matrix
+def calculate_average_and_count_even(matrix):
+rows = len(matrix)
+columns = len(matrix[0])
+average = 0
+even_count = 0
+for i in range(rows):
+for j in range(columns):
+if i < j:
+average += matrix[i][j]
+ elif i > j and matrix[i][j] % 2 == 0:
+even_count += 1
+average /= (rows * (rows - 1) // 2)  # Среднее арифметическое элементов над диагональю
+return average, even_count
+try:
+rows = int(input("Введите количество строк матрицы: "))
+columns = int(input("Введите количество столбцов матрицы: "))
+min_value = int(input("Минимальное значение элементов: "))
+max_value = int(input("Максимальное значение элементов: "))
+matrix = generate_matrix(rows, columns, min_value, max_value)
+for row in matrix:
+print(row)
+average, even_count = calculate_average_and_count_even(matrix)
+print(f"Среднее арифметическое элементов над главной диагональю: {average}")
+print(f"Количество четных элементов под главной диагональю: {even_count}")
+except ValueError as e:
+print(f"Ошибка: {e}")
