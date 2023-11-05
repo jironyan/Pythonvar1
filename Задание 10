@@ -1,0 +1,53 @@
+# повезло, что девушка в гейм деве
+# Создание пустого поля 8x8
+board = [[' ' for _ in range(8)] for _ in range(8)]
+
+# Функция для вывода игрового поля
+def print_board():
+    for row in board:
+        print(" | ".join(row))
+        print("-" * 31)
+
+# Функция для проверки победы волков
+def wolves_win():
+    return 'W' in board[0]
+
+# Функция для проверки победы овец
+def sheep_win():
+    wolves_row = 0
+    for i in range(8):
+        if 'W' in board[i]:
+            wolves_row = i
+    return wolves_row == 7
+
+# Игровой цикл
+player = 'W'
+while True:
+    print_board()
+    print(f"Ход игрока {player}:")
+    
+    # Ввод координат текущей и целевой клеток
+    current_x, current_y = map(int, input("Введите координаты текущей клетки (x y): ").split())
+    target_x, target_y = map(int, input("Введите координаты целевой клетки (x y): ").split())
+    
+    # Проверка на правильность хода
+    if board[current_x][current_y] != player or board[target_x][target_y] != ' ':
+        print("Неправильный ход. Попробуйте еще раз.")
+        continue
+    
+    # Перемещение фишки
+    board[target_x][target_y] = player
+    board[current_x][current_y] = ' '
+    
+    # Проверка условий победы
+    if wolves_win():
+        print_board()
+        print("Волки победили!")
+        break
+    if sheep_win():
+        print_board()
+        print("Овцы победили!")
+        break
+    
+    # Смена игрока
+    player = 'W' if player == 'S' else 'S'
