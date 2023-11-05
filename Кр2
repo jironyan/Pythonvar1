@@ -1,0 +1,41 @@
+#задание 1
+def is_prime(num):
+if num < 2:
+return False
+for i in range(2, int(num**0.5) + 1):
+if num % i == 0:
+return False
+return True
+def find_next_prime(n):
+if n < 2:
+return 2
+while True:
+n += 1
+if is_prime(n):
+return n
+def find_next_prime_larger_than_n(n):
+if is_prime(n):
+return find_next_prime(n)
+else:
+return 0
+# Пример использования
+input_number = 11
+result = find_next_prime_larger_than_n(input_number)
+print(result)
+
+#задание 2
+def count_adjacent_pairs(string):
+pair_count = {}  # Инициализируем пустой словарь для подсчета пар
+for i in range(len(string) - 1):
+pair = string[i:i+2]  # Получаем пару символов
+if pair in pair_count:
+pair_count[pair] += 1  # Если пара уже существует, увеличиваем счетчик на 1
+else:
+pair_count[pair] = 1  # Если пара встречается впервые, создаем запись в словаре со значением 1
+return pair_count
+# Пример использования
+input_string = "abcaabbccd"
+result = count_adjacent_pairs(input_string)
+print(result)
+
+
