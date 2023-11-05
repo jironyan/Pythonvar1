@@ -1,0 +1,10 @@
+# Введите произвольную строку
+input_string = input("Введите строку с несколькими словами: ")
+# Разделите строку на слова и отсортируйте их
+words = input_string.split()
+sorted_words = sorted(words)
+# Создайте строку, объединяя слова через пробел
+sorted_string = ' '.join(sorted_words)
+# Выведите отсортированную строку
+print("Отсортированная строка:")
+print(sorted_string)
