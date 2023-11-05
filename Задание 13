@@ -1,0 +1,12 @@
+import random
+# Создайте два списка с 5 случайными целыми числами от 1 до 10
+list1 = [random.randint(1, 10) for _ in range(5)]
+list2 = [random.randint(1, 10) for _ in range(5)]
+# Найдите симметрическую разность множеств
+set1 = set(list1)
+set2 = set(list2)
+symmetric_difference = set1.symmetric_difference(set2)
+# Выведите списки и симметрическую разность
+print("Первый список:", list1)
+print("Второй список:", list2)
+print("Симметрическая разность множеств:", list(symmetric_difference))
