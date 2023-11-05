@@ -1,17 +1,12 @@
-# Введите строку
 input_string = input("Введите строку, состоящую из 2 цифр: ")
-
 # Преобразуйте строку в целое и вещественное число
 integer_number = int(input_string)
 float_number = float(input_string)
-
 # Выведите значения
 values = (input_string, integer_number, float_number)
-
 # Выведите значения через запятую на одной строке
 print(f"{type(values[0])}, {type(values[1])}, {type(values[2])}")
 print(f"{values[0]}, {values[1]}, {values[2]}")
-
 # Выведите значения по одному на строке с указанием типа
 for value in values:
     print(f"{type(value)}")
