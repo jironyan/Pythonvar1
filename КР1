@@ -1,0 +1,20 @@
+#задание 1
+def is_palindrome_after_removal(s):
+# Удаляем рядом стоящие одинаковые символы
+s = ''.join(char for i, char in enumerate(s) if i == 0 or s[i - 1] != char)
+# Проверяем, является ли полученная строка палиндромом
+return s == s[::-1]
+# Пример использования
+input_string = "32aba23"
+result = is_palindrome_after_removal(input_string)
+print(result)
+
+#задание 2
+def custom_sort(word):
+if word.isalpha():  # Проверяем, состоит ли слово только из букв
+return (0, word)  # Если да, возвращаем (0, word) для сортировки перед словами с цифрами
+else:
+return (1, word)  # В противном случае, возвращаем (1, word) для сортировки после слов с цифрами
+words = ["apple", "123banana", "cherry", "grape99", "2orange"]
+sorted_words = sorted(words, key=custom_sort)
+print(sorted_words)
