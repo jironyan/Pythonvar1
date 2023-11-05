@@ -1,0 +1,16 @@
+# Введите строку с фамилией, именем и отчеством
+full_name = input("Введите фамилию, имя и отчество, разделенные пробелами: ")
+# Разделите введенную строку на слова, используя пробел как разделитель
+words = full_name.split()
+# Проверьте, что введена корректная строка (содержит как минимум фамилию и имя)
+if len(words) >= 2:
+    last_name = words[0]  # Фамилия
+    first_name = words[1]  # Имя
+     # Получите сокращенные формы фамилии и имени
+    last_name_initials = f"{last_name} {first_name[0]}.{first_name[1]}."
+    first_name_initials = f"{first_name[0]}.{first_name[1]}. {last_name}"
+      # Выведите полученные строки
+    print(last_name_initials)
+    print(first_name_initials)
+else:
+    print("Пожалуйста, введите корректную строку с фамилией и именем.")
