@@ -1,0 +1,18 @@
+# Введите строку
+input_string = input("Введите строку, состоящую из слов, разделенных пробелами: ")
+# Удалите лишние пробелы и разделите строку на слова
+cleaned_string = ' '.join(input_string.split())
+# Разделите строку на слова
+words = cleaned_string.split()
+# Поменяйте регистр в первых двух словах
+if len(words) >= 2:
+    words[0] = words[0].swapcase()
+    words[1] = words[1].swapcase()
+# Определите количество слов в строке
+word_count = len(words)
+# Выведите результат
+print("Строка с удаленными лишними пробелами:")
+print(cleaned_string)
+print("Строка с первыми двумя словами в обратном регистре:")
+print(' '.join(words))
+print(f"Количество слов в строке: {word_count}")
