@@ -1,0 +1,28 @@
+# 1 случай
+def simplify_fraction(n, m):
+def gcd(a, b):
+while b:
+a, b = b, a % b
+return a
+common_divisor = gcd(n, m)
+p = n // common_divisor
+q = m // common_divisor
+return p, q
+n = 15
+m = 20
+result = simplify_fraction(n, m)
+print(f"Сокращенная дробь: {result[0]} / {result[1]}")
+
+#2 случай
+def simplify_fraction_inplace(fraction):
+ n, m = fraction
+def gcd(a, b):
+while b:
+a, b = b, a % b
+return a
+common_divisor = gcd(n, m)
+fraction[0] = n // common_divisor
+fraction[1] = m // common_divisor
+fraction = [15, 20]
+simplify_fraction_inplace(fraction)
+print(f"Сокращенная дробь: {fraction[0]} / {fraction[1]}")
